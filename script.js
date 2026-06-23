@@ -31,12 +31,12 @@ $(document).ready(function () {
         $('.menu-btn i').removeClass("active");
     });
 
-    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var canUseTypingAnimation = window.matchMedia("(min-width: 1025px) and (hover: hover) and (pointer: fine)").matches;
 
-    if (isMobile) {
-        $(".typing").text("ITエンジニアです。");
-        $(".typing-2").text("ITエンジニアを目指しています。");
-    } else {
+    if (canUseTypingAnimation) {
+        $(".typing").text("");
+        $(".typing-2").text("");
+
         var typed = new Typed(".typing", {
             strings: [
                 "ITエンジニアです。",
@@ -57,6 +57,9 @@ $(document).ready(function () {
             backSpeed: 60,
             loop: true
         });
+    } else {
+        $(".typing").text("ITエンジニアです。");
+        $(".typing-2").text("ITエンジニアを目指しています。");
     }
 
     // 趣味 carousel
