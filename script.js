@@ -31,26 +31,33 @@ $(document).ready(function () {
         $('.menu-btn i').removeClass("active");
     });
 
-var typed = new Typed(".typing", {
-    strings: [
-        "ITエンジニアです。",
-        "Webアプリケーション開発を学んでいます。",
-        "チェスが得意です。"
-    ],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true
-});
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-var typed2 = new Typed(".typing-2", {
-    strings: [
-    "ITエンジニアを目指しています。",
-    "システム開発について学んでいます。"
-],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true
-});
+    if (isMobile) {
+        $(".typing").text("ITエンジニアです。");
+        $(".typing-2").text("ITエンジニアを目指しています。");
+    } else {
+        var typed = new Typed(".typing", {
+            strings: [
+                "ITエンジニアです。",
+                "Webアプリケーション開発を学んでいます。",
+                "チェスが得意です。"
+            ],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+
+        var typed2 = new Typed(".typing-2", {
+            strings: [
+                "ITエンジニアを目指しています。",
+                "システム開発について学んでいます。"
+            ],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+    }
 
     // 趣味 carousel
     $('.carousel').owlCarousel({
